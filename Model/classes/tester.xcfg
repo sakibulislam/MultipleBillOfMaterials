@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="mnj.ont.model.services.AppModule">
+      <AppModuleConfig name="1589067EEB7" IsLazyLoadingTrue="true" jbo.txn.disconnect_level="1" DBconnection="java:comp/env/jdbc/Conn1DS" ApplicationName="mnj.ont.model.services.AppModule" jbo.project="mnj.ont.model.Model" BC4JConfigName="AppModuleLocal" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DeployPlatform="LOCAL" JDBCName="Conn1">
+         <AM-Pooling jbo.doconnectionpooling="true"/>
+         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle" jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="mnj.ont.model.services.AppModule"/>
+         <Tester FullProxyInterfaceName="mnj.ont.model.services.common.AppModule"/>
+         <Custom LastUsedConfiguration="AppModuleLocal" JDBCDataSource="java:comp/env/jdbc/Conn1DS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjOntBomDelDates"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="MNJ_ONT_BOM_DEL_DATES"
+  AliasName="MnjOntBomDelDates"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="mnj.ont.model.entities.MnjOntBomDelDatesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="DetailId"
+    IsNotNull="true"
+    ColumnName="DETAIL_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_ONT_BOM_DEL_DATES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BomRmlineId"
+    ColumnName="BOM_RMLINE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_ONT_BOM_DEL_DATES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DeliveryDate"
+    ColumnName="DELIVERY_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_ONT_BOM_DEL_DATES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Qty"
+    ColumnName="QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_ONT_BOM_DEL_DATES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="CustMnjOntBomRmlineLines"
+    Association="mnj.ont.model.entities.MnjOntBomDelDatesFkAssoc"
+    AssociationEnd="mnj.ont.model.entities.MnjOntBomDelDatesFkAssoc.CustMnjOntBomRmlineLines"
+    AssociationOtherEnd="mnj.ont.model.entities.MnjOntBomDelDatesFkAssoc.MnjOntBomDelDates"
+    Type="mnj.ont.model.entities.CustMnjOntBomRmlineLinesImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="MnjOntBomDelDatesPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MNJ_ONT_BOM_DEL_DATES_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.ont.model.entities.MnjOntBomDelDates.DetailId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MnjOntBomDelDatesFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_BOM_LINE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MNJ_ONT_BOM_DEL_DATES_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.ont.model.entities.MnjOntBomDelDates.BomRmlineId"/>
+    </AttrArray>
+  </Key>
+</Entity>

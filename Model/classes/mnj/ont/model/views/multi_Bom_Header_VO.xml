@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="multi_Bom_Header_VO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.ont.model.views.multi_Bom_Header_VO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="p_userId"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.sessionScope.userId]]></TransientExpression>
+  </Variable>
+  <SQLQuery>
+    <![CDATA[/* Formatted on 3/25/2019 1:20:52 PM (QP5 v5.256.13226.35510) */
+SELECT D.*,
+       (SELECT LISTAGG (Style_No_c, ',') WITHIN GROUP (ORDER BY Style_No_c)
+          FROM (SELECT DISTINCT h.Style_No_c
+                  FROM CUST_MNJ_ONT_BOM h
+                 WHERE     d.org_id = h.org_Id
+                       AND d.season_c = h.season_c
+                       AND d.buyer_id = h.Buyer_id))
+          style_no,
+       (SELECT LISTAGG (Style_Name_c, ',')
+                  WITHIN GROUP (ORDER BY Style_Name_c)
+          FROM (SELECT DISTINCT h.Style_Name_c
+                  FROM CUST_MNJ_ONT_BOM h
+                 WHERE     d.org_id = h.org_Id
+                       AND d.season_c = h.season_c
+                       AND d.buyer_id = h.Buyer_id))
+          style_name
+  FROM (  SELECT *
+            FROM (  SELECT CustMnjOntBomHeader.ORG_ID,
+                           CustMnjOntBomHeader.Buyer_Id,
+                           (SELECT CU.CUSTOMER_NAME
+                              FROM AR_CUSTOMERS CU
+                             WHERE CU.CUSTOMER_ID = CustMnjOntBomHeader.Buyer_Id)
+                              buyer,
+                           CustMnjOntBomHeader.Season_c,
+                           (SELECT name
+                              FROM hr_all_organization_units haou
+                             WHERE CustMnjOntBomHeader.Org_Id =
+                                      haou.organization_id)
+                              unit_name,
+                           (SELECT name
+                              FROM hr_all_organization_units haou
+                             WHERE CustMnjOntBomHeader.Org_Id =
+                                      haou.organization_id)
+                              shipment_unit
+                      FROM CUST_MNJ_ONT_BOM CustMnjOntBomHeader
+                     WHERE     SYSDATE BETWEEN CustMnjOntBomHeader.effective_start_date
+                                           AND NVL (
+                                                  CustMnjOntBomHeader.effective_end_date,
+                                                  SYSDATE)
+                           AND CustMnjOntBomHeader.Buyer_Id IN (SELECT V.BUYER_ID
+                                                                  FROM MNJ_USER_WISE_BUYERS_DET_V v
+                                                                 WHERE V.USER_ID =:p_userId)
+                  ORDER BY CustMnjOntBomHeader.Bom_Number DESC)
+        GROUP BY org_id,
+                 buyer,
+                 season_c,
+                 unit_name,
+                 shipment_unit,
+                 Buyer_Id) D]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="OrgId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ORG_ID"
+    Expression="ORG_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BUYER_ID"
+    Expression="BUYER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Buyer"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER"
+    Expression="BUYER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SeasonC"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEASON_C"
+    Expression="SEASON_C"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UnitName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="UNIT_NAME"
+    Expression="UNIT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipmentUnit"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHIPMENT_UNIT"
+    Expression="SHIPMENT_UNIT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE_NO"
+    Expression="STYLE_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE_NAME"
+    Expression="STYLE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ViewAttr"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression><![CDATA[adf.context.sessionScope.userId]]></TransientExpression>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.ont.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

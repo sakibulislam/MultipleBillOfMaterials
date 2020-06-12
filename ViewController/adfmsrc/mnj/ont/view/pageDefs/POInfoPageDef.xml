@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="POInfoPageDef"
+                Package="mnj.ont.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="POInformationVO1" RangeSize="100"
+              DataControl="AppModuleDataControl" id="POInformationVO1Iterator"/>
+    <invokeAction id="WhereClauseSet" Binds="setHeaderClause" Refresh="always"/>
+    <searchRegion Binds="POInformationVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="POInformationVO1Query"/>
+  </executables>
+  <bindings>
+    <methodAction IterBinding="POInformationVO1Iterator" id="setHeaderClause"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setHeaderClause" IsViewObjectMethod="true"
+                  DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.POInformationVO1"/>
+    <tree IterBinding="POInformationVO1Iterator" id="POInformationVO1">
+      <nodeDefinition DefName="mnj.ont.model.views.POInformationVO"
+                      Name="POInformationVO10">
+        <AttrNames>
+          <Item Value="SpoNo"/>
+          <Item Value="PoNo"/>
+          <Item Value="BomNo"/>
+          <Item Value="BomRef"/>
+          <Item Value="ItemDescription"/>
+          <Item Value="BookedQuantity"/>
+          <Item Value="BookBy"/>
+          <Item Value="RequiredDate"/>
+          <Item Value="BookDate"/>
+          <Item Value="AuthorizationStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

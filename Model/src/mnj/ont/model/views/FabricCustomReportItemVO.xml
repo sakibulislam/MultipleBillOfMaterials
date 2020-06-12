@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FabricCustomReportItemVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.ont.model.views.FabricCustomReportItemVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery>
+    <![CDATA[select distinct
+        cmob.BOM_NUMBER,
+        cmobr.ITEM_PREFIX,
+        msib.ATTRIBUTE1 ITEM_CODE,
+        msib.ATTRIBUTE6 COMPOSITION,
+        WeightDetailEO.COLOR,
+        cmobr.NO_OF_GARMENT BOOKING_QTY,
+        case
+           when cmobr.Delivery_Date1 is not null then cmobr.Delivery_Date1
+           when cmobr.Delivery_Date2 is not null then cmobr.Delivery_Date2
+           when cmobr.Delivery_Date3 is not null then cmobr.Delivery_Date3
+           when cmobr.Delivery_Date4 is not null then cmobr.Delivery_Date4
+           when cmobr.Delivery_Date5 is not null then cmobr.Delivery_Date5
+        else null
+        end as Delivery_Date,
+        cmobr.MEASURE_UNIT_ID MEASURE_UNIT
+ from CUST_MNJ_ONT_BOM cmob,
+     CUST_MNJ_ONT_BOM_RMLINE cmobr,
+     MTL_SYSTEM_ITEMS_B msib,
+     CUST_MNJ_ONT_PCKASSORT_WEIGHT WeightDetailEO,
+     CUST_MNJ_ONT_FINISHPCKASSORT HederEO
+ where cmob.BOM_ID = cmobr.BOM_ID
+      and msib.INVENTORY_ITEM_ID = cmobr.Inventory_Item_Id
+      and msib.ORGANIZATION_ID = 353
+      and cmobr.ATTRIBUTE1 is null
+      AND HederEO.SHPCKASSORT_ID=WeightDetailEO.SHPCKASSORT_ID
+      AND HederEO.SHPCKASSORT_NO=cmob.BOM_NUMBER]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="BomNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BOM_NUMBER"
+    Expression="BOM_NUMBER"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemPrefix"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ITEM_PREFIX"
+    Expression="ITEM_PREFIX"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ITEM_CODE"
+    Expression="ITEM_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Composition"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COMPOSITION"
+    Expression="COMPOSITION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Color"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOR"
+    Expression="COLOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BookingQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="25"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BOOKING_QTY"
+    Expression="BOOKING_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="26"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DeliveryDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="DELIVERY_DATE"
+    Expression="DELIVERY_DATE"
+    SQLType="DATE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MeasureUnit"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MEASURE_UNIT"
+    Expression="MEASURE_UNIT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.ont.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

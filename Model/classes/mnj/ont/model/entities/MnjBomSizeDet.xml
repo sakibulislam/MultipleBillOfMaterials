@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjBomSizeDet"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="MNJ_BOM_SIZE_DET"
+  AliasName="MnjBomSizeDet"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="mnj.ont.model.entities.MnjBomSizeDetImpl"
+  CollClass="mnj.ont.model.entities.MnjBomSizeDetCollImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML|Coll"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="DetId"
+    IsNotNull="true"
+    ColumnName="DET_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_BOM_SIZE_DET"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BomRmlineId"
+    ColumnName="BOM_RMLINE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_BOM_SIZE_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SizeVal"
+    Precision="200"
+    ColumnName="SIZE_VAL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_BOM_SIZE_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SizeWiseOrderQty"
+    ColumnName="SIZE_WISE_ORDER_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_BOM_SIZE_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SizeWiseBomReqQty"
+    ColumnName="SIZE_WISE_BOM_REQ_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_BOM_SIZE_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BookingPercent"
+    ColumnName="BOOKING_PERCENT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_BOM_SIZE_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SizeWiseProjQty"
+    ColumnName="SIZE_WISE_PROJ_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_BOM_SIZE_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AddDeduct"
+    ColumnName="ADD_DEDUCT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_BOM_SIZE_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ActualQty"
+    ColumnName="ACTUAL_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_BOM_SIZE_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Flag"
+    Precision="1"
+    ColumnName="FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_BOM_SIZE_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="CustMnjOntBomRmlineLines"
+    Association="mnj.ont.model.entities.MnjBomSizeDetFkAssoc"
+    AssociationEnd="mnj.ont.model.entities.MnjBomSizeDetFkAssoc.CustMnjOntBomRmlineLines"
+    AssociationOtherEnd="mnj.ont.model.entities.MnjBomSizeDetFkAssoc.MnjBomSizeDet"
+    Type="mnj.ont.model.entities.CustMnjOntBomRmlineLinesImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="MnjBomSizeDetPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MNJ_BOM_SIZE_DET_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.ont.model.entities.MnjBomSizeDet.DetId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MnjBomSizeDetFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_BOM_LINE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MNJ_BOM_SIZE_DET_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.ont.model.entities.MnjBomSizeDet.BomRmlineId"/>
+    </AttrArray>
+  </Key>
+</Entity>

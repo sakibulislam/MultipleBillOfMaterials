@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DeliveryDatesVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  SelectList="MnjOntBomDelDates.BOM_RMLINE_ID, 
+       MnjOntBomDelDates.DELIVERY_DATE, 
+       MnjOntBomDelDates.DETAIL_ID, 
+       MnjOntBomDelDates.QTY"
+  FromList="MNJ_ONT_BOM_DEL_DATES MnjOntBomDelDates"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.ont.model.views.DeliveryDatesVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="MnjOntBomDelDates"
+    Entity="mnj.ont.model.entities.MnjOntBomDelDates"/>
+  <ViewAttribute
+    Name="BomRmlineId"
+    PrecisionRule="true"
+    EntityAttrName="BomRmlineId"
+    EntityUsage="MnjOntBomDelDates"
+    AliasName="BOM_RMLINE_ID"/>
+  <ViewAttribute
+    Name="DeliveryDate"
+    PrecisionRule="true"
+    EntityAttrName="DeliveryDate"
+    EntityUsage="MnjOntBomDelDates"
+    AliasName="DELIVERY_DATE"/>
+  <ViewAttribute
+    Name="DetailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DetailId"
+    EntityUsage="MnjOntBomDelDates"
+    AliasName="DETAIL_ID"/>
+  <ViewAttribute
+    Name="Qty"
+    PrecisionRule="true"
+    EntityAttrName="Qty"
+    EntityUsage="MnjOntBomDelDates"
+    AliasName="QTY"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.ont.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

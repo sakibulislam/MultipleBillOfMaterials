@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PkBomLineFkLink"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  EntityAssociation="mnj.ont.model.entities.PkBomLineFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="CustMnjOntBomHeaderView"
+    Cardinality="1"
+    Owner="mnj.ont.model.views.CustMnjOntBomHeaderView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CustMnjOntBomHeaderView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.ont.model.views.CustMnjOntBomHeaderView.BomId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="CustMnjOntBomRmlineLinesView"
+    Cardinality="-1"
+    Owner="mnj.ont.model.views.CustMnjOntBomRmlineLinesView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CustMnjOntBomRmlineLinesView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.ont.model.views.CustMnjOntBomRmlineLinesView.BomId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

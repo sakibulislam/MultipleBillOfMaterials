@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="mnj.ont.model.services.AppModule">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="mnj.ont.model.Model" name="AppModuleLocal" jbo.txn.disconnect_level="1" ApplicationName="mnj.ont.model.services.AppModule">
+         <AM-Pooling jbo.doconnectionpooling="true"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="mnj.ont.model.services.AppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/Conn1DS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="mnj.ont.model.Model" name="AppModuleShared" ApplicationName="mnj.ont.model.services.AppModule">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="mnj.ont.model.services.AppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/Conn1DS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

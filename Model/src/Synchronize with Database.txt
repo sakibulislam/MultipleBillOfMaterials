@@ -1,0 +1,11 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :CustMnjOntBomRmlineLines
+  Attribute :LineId
+    Change Mandatory to:true
+  Create Attribute for column: LEFT_OVER_QTY
+  Create Attribute for column: ADDITIONAL_QTY
+  Create Attribute for column: ACTUAL_PRCNT
+  Create Attribute for column: PENDING_PRCNT
+  Create Attribute for column: ACCUM_PRCNT
+  Create Attribute for column: TRANSFER_QTY

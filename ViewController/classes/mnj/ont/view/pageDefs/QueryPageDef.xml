@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="QueryPageDef"
+                Package="mnj.ont.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustMnjOntBomHeaderView1" RangeSize="12"
+              DataControl="AppModuleDataControl"
+              id="CustMnjOntBomHeaderView1Iterator"/>
+    <searchRegion Criteria="CustMnjOntBomHeaderViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustMnjOntBomHeaderView1Iterator"
+                  id="CustMnjOntBomHeaderViewCriteriaQuery"/>
+    <invokeAction id="setSessionValue" Binds="setSessionValues"
+                  Refresh="always"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CustMnjOntBomHeaderView1Iterator"
+          id="CustMnjOntBomHeaderView1">
+      <nodeDefinition DefName="mnj.ont.model.views.CustMnjOntBomHeaderView"
+                      Name="CustMnjOntBomHeaderView10">
+        <AttrNames>
+          <Item Value="BomId"/>
+          <Item Value="BomNumber"/>
+          <Item Value="BomDate"/>
+          <Item Value="SaleOrderNumber"/>
+          <Item Value="Buyer"/>
+          <Item Value="Attribute1"/>
+          <Item Value="SeasonC"/>
+          <Item Value="StyleNameC"/>
+          <Item Value="StyleNoC"/>
+          <Item Value="BpoNoC"/>
+          <Item Value="Attachemnt"/>
+          <Item Value="UnitName"/>
+          <Item Value="StyleNameNew"/>
+          <Item Value="ShipmentUnit"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CustMnjOntBomHeaderView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="CustMnjOntBomHeaderView1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <methodAction id="HeaderActions"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="HeaderActions"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="type" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respAppl" NDValue="#{viewScope.RespApplId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getAttachments"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getAttachments"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.getAttachments_AppModuleDataControl_dataProvider_getAttachments_result"/>
+  </bindings>
+</pageDefinition>

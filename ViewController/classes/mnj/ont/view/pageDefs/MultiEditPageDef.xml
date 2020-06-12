@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="MultiEditPageDef"
+                Package="mnj.ont.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustMnjOntBomRmlineEO_autoView1" RangeSize="1000"
+              DataControl="AppModuleDataControl"
+              id="CustMnjOntBomRmlineEO_autoView1Iterator"/>
+    <searchRegion Binds="CustMnjOntBomRmlineEO_autoView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CustMnjOntBomRmlineEO_autoView1Query"/>
+    <iterator Binds="ComponentLov1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="ComponentLov1Iterator"/>
+    <searchRegion Binds="ComponentLov1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ComponentLov1Query"/>
+    <iterator Binds="filterVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="filterVO1Iterator"/>
+    <iterator Binds="headerSearchVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="headerSearchVO1Iterator"/>
+    <searchRegion Binds="headerSearchVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="headerSearchVO1Query"/>
+    <iterator Binds="POInfoVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="POInfoVO1Iterator"/>
+    <searchRegion Binds="POInfoVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="POInfoVO1Query"/>
+    <iterator Binds="MnjBomPoDffVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="MnjBomPoDffVO1Iterator"/>
+    <searchRegion Binds="MnjBomPoDffVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjBomPoDffVO1Query"/>
+    <iterator Binds="priceSupplierProdAreaLOV1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="priceSupplierProdAreaLOV1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CustMnjOntBomRmlineEO_autoView1Iterator"
+          id="CustMnjOntBomRmlineEO_autoView1">
+      <nodeDefinition DefName="mnj.ont.model.BOM_automation.CustMnjOntBomRmlineEO_autoView"
+                      Name="CustMnjOntBomRmlineEO_autoView10">
+        <AttrNames>
+          <Item Value="BomNumber"/>
+          <Item Value="StyleNoC"/>
+          <Item Value="StyleNameC"/>
+          <Item Value="MeasureUnitId"/>
+          <Item Value="NoOfGarment"/>
+          <Item Value="UsageMoUnit"/>
+          <Item Value="ExtraUsage"/>
+          <Item Value="ProductionArea"/>
+          <Item Value="InventoryItemId"/>
+          <Item Value="ProcessDesc"/>
+          <Item Value="ItemDesc"/>
+          <Item Value="SupplierName"/>
+          <Item Value="LegacyCode"/>
+          <Item Value="BookedQty"/>
+          <Item Value="UomConvRate"/>
+          <Item Value="OnhandQuantity"/>
+          <Item Value="PricePerUnit"/>
+          <Item Value="Perntg"/>
+          <Item Value="ProjPrQty"/>
+          <Item Value="LeftOverQty"/>
+          <Item Value="AdditionalQty"/>
+          <Item Value="AccumPrcnt"/>
+          <Item Value="ActualPrcnt"/>
+          <Item Value="PendingPrcnt"/>
+          <Item Value="TransferQty"/>
+          <Item Value="PurchaseType"/>
+          <Item Value="TotalQuantity"/>
+          <Item Value="Total"/>
+          <Item Value="SeasonC"/>
+          <Item Value="selectFab" Binds="selectFab"/>
+          <Item Value="Flag" Binds="Flag"/>
+          <Item Value="Currency"/>
+          <Item Value="StyleNameNew"/>
+          <Item Value="ItemStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CustMnjOntBomRmlineEO_autoView1Iterator"
+          id="CustMnjOntBomRmlineEO_autoView11">
+      <nodeDefinition DefName="mnj.ont.model.BOM_automation.CustMnjOntBomRmlineEO_autoView"
+                      Name="CustMnjOntBomRmlineEO_autoView110">
+        <AttrNames>
+          <Item Value="BomNumber"/>
+          <Item Value="StyleNoC"/>
+          <Item Value="StyleNameC"/>
+          <Item Value="ItemCategoryId"/>
+          <Item Value="ItemCode"/>
+          <Item Value="MeasureUnitId"/>
+          <Item Value="NoOfGarment"/>
+          <Item Value="UsageMoUnit"/>
+          <Item Value="ExtraUsage"/>
+          <Item Value="ProductionArea"/>
+          <Item Value="ItemPrefix"/>
+          <Item Value="ThreadUnit"/>
+          <Item Value="BookingUom"/>
+          <Item Value="ItemDesc"/>
+          <Item Value="SupplierName"/>
+          <Item Value="BookedQty"/>
+          <Item Value="PoQty"/>
+          <Item Value="UomConvRate"/>
+          <Item Value="OnhandQuantity"/>
+          <Item Value="AllocateQty"/>
+          <Item Value="OnhandQty1"/>
+          <Item Value="AllocateQty1"/>
+          <Item Value="AlocateIntrQty"/>
+          <Item Value="PrQty"/>
+          <Item Value="AlocateCgl"/>
+          <Item Value="AlocateGfl"/>
+          <Item Value="OnhandCgl"/>
+          <Item Value="OnhahndGfl"/>
+          <Item Value="AlocateIntrCgl"/>
+          <Item Value="AlocateInterGfl"/>
+          <Item Value="OrgIdCal"/>
+          <Item Value="OrgIdCgl"/>
+          <Item Value="OrgIdGfl"/>
+          <Item Value="LineStatus"/>
+          <Item Value="ExcesBuyReason"/>
+          <Item Value="PricePerUnit"/>
+          <Item Value="Total"/>
+          <Item Value="Perntg"/>
+          <Item Value="ProjPrQty"/>
+          <Item Value="LeftOverQty"/>
+          <Item Value="AdditionalQty"/>
+          <Item Value="AccumPrcnt"/>
+          <Item Value="ActualPrcnt"/>
+          <Item Value="PendingPrcnt"/>
+          <Item Value="SeasonC"/>
+          <Item Value="Qty4"/>
+          <Item Value="InventoryItemId"/>
+          <Item Value="PurchaseType"/>
+          <Item Value="LegacyCode"/>
+          <Item Value="Flag" Binds="Flag"/>
+          <Item Value="Currency"/>
+          <Item Value="StyleNameNew"/>
+          <Item Value="ItemStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ComponentLov1Iterator" id="ComponentLov1">
+      <nodeDefinition DefName="mnj.ont.model.lov.vo.ComponentLov"
+                      Name="ComponentLov10">
+        <AttrNames>
+          <Item Value="OrderedItem"/>
+          <Item Value="InventoryItemId"/>
+          <Item Value="Status"/>
+          <Item Value="Description"/>
+          <Item Value="PrimaryUnitOfMeasure"/>
+          <Item Value="ValueDescription"/>
+          <Item Value="LegacyCode"/>
+          <Item Value="DffSize"/>
+          <Item Value="Threadlength"/>
+          <Item Value="OnhandQty"/>
+          <Item Value="AllocateQty"/>
+          <Item Value="OnhandQtyCgl"/>
+          <Item Value="AllocateQtyCgl"/>
+          <Item Value="OnhandQtyGfl"/>
+          <Item Value="AllocateQtyGfl"/>
+          <Item Value="Segment1"/>
+          <Item Value="Segment2"/>
+          <Item Value="Segment4"/>
+          <Item Value="Color"/>
+          <Item Value="MultiSelect"/>
+          <Item Value="selectAttr" Binds="selectAttr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="ComponentLov1Iterator" id="selectAttr"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="selectAttr"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <listOfValues StaticList="false" IterBinding="filterVO1Iterator"
+                  Uses="LOV_Buyer" id="Buyer"/>
+    <listOfValues StaticList="false" IterBinding="filterVO1Iterator"
+                  Uses="LOV_Season" id="Season"/>
+    <listOfValues StaticList="false" IterBinding="filterVO1Iterator"
+                  Uses="LOV_Unit" id="Unit"/>
+    <tree IterBinding="headerSearchVO1Iterator" id="headerSearchVO1">
+      <nodeDefinition DefName="mnj.ont.model.BOM_automation.headerSearchVO"
+                      Name="headerSearchVO10">
+        <AttrNames>
+          <Item Value="BomId"/>
+          <Item Value="BomNumber"/>
+          <Item Value="BomDate"/>
+          <Item Value="CreationDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="OrgId"/>
+          <Item Value="Buyer"/>
+          <Item Value="BuyerId"/>
+          <Item Value="SeasonC"/>
+          <Item Value="StyleNameC"/>
+          <Item Value="StyleNoC"/>
+          <Item Value="UnitName"/>
+          <Item Value="ShipmentUnit"/>
+          <Item Value="OrderType"/>
+          <Item Value="Division"/>
+          <Item Value="StyleNameNew"/>
+          <Item Value="SelectBom" Binds="SelectBom"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="headerSearchVO1Iterator" id="SelectBom"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SelectBom"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <button IterBinding="CustMnjOntBomRmlineEO_autoView1Iterator"
+            id="selectFab" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="selectFab"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="CustMnjOntBomRmlineEO_autoView1Iterator"
+          id="CustMnjOntBomRmlineEO_autoView12">
+      <nodeDefinition DefName="mnj.ont.model.BOM_automation.CustMnjOntBomRmlineEO_autoView"
+                      Name="CustMnjOntBomRmlineEO_autoView120">
+        <AttrNames>
+          <Item Value="BomNumber"/>
+          <Item Value="StyleNoC"/>
+          <Item Value="StyleNameC"/>
+          <Item Value="SeasonC"/>
+          <Item Value="LineStatus"/>
+          <Item Value="PurchaseType"/>
+          <Item Value="ItemDesc"/>
+          <Item Value="MeasureUnitId"/>
+          <Item Value="UsageMoUnit"/>
+          <Item Value="NoOfGarment"/>
+          <Item Value="LeftOverQty"/>
+          <Item Value="ProjPrQty"/>
+          <Item Value="AdditionalQty"/>
+          <Item Value="BookedQty"/>
+          <Item Value="ActualPrcnt"/>
+          <Item Value="PricePerUnit"/>
+          <Item Value="Total"/>
+          <Item Value="ProductionArea"/>
+          <Item Value="SupplierName"/>
+          <Item Value="InventoryItemId"/>
+          <Item Value="PendingPrcnt"/>
+          <Item Value="ExtraUsage"/>
+          <Item Value="Perntg"/>
+          <Item Value="AccumPrcnt"/>
+          <Item Value="LegacyCode"/>
+          <Item Value="Flag" Binds="Flag"/>
+          <Item Value="Currency"/>
+          <Item Value="StyleNameNew"/>
+          <Item Value="BookingUom"/>
+          <Item Value="ItemStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CustMnjOntBomRmlineEO_autoView1Iterator"
+          id="CustMnjOntBomRmlineEO_autoView13">
+      <nodeDefinition DefName="mnj.ont.model.BOM_automation.CustMnjOntBomRmlineEO_autoView"
+                      Name="CustMnjOntBomRmlineEO_autoView130">
+        <AttrNames>
+          <Item Value="BomNumber"/>
+          <Item Value="StyleNoC"/>
+          <Item Value="StyleNameC"/>
+          <Item Value="SeasonC"/>
+          <Item Value="LegacyCode"/>
+          <Item Value="PurchaseType"/>
+          <Item Value="ItemDesc"/>
+          <Item Value="MeasureUnitId"/>
+          <Item Value="UsageMoUnit"/>
+          <Item Value="ExtraUsage"/>
+          <Item Value="NoOfGarment"/>
+          <Item Value="LeftOverQty"/>
+          <Item Value="ProjPrQty"/>
+          <Item Value="AdditionalQty"/>
+          <Item Value="Perntg"/>
+          <Item Value="BookedQty"/>
+          <Item Value="ActualPrcnt"/>
+          <Item Value="PendingPrcnt"/>
+          <Item Value="AccumPrcnt"/>
+          <Item Value="PricePerUnit"/>
+          <Item Value="Total"/>
+          <Item Value="ProductionArea"/>
+          <Item Value="SupplierName"/>
+          <Item Value="InventoryItemId"/>
+          <Item Value="Flag" Binds="Flag"/>
+          <Item Value="Currency"/>
+          <Item Value="StyleNameNew"/>
+          <Item Value="BookingUom"/>
+          <Item Value="ItemStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ComponentLov1Iterator" id="ComponentLov11">
+      <nodeDefinition DefName="mnj.ont.model.lov.vo.ComponentLov"
+                      Name="ComponentLov110">
+        <AttrNames>
+          <Item Value="OrderedItem"/>
+          <Item Value="InventoryItemId"/>
+          <Item Value="Status"/>
+          <Item Value="Description"/>
+          <Item Value="PrimaryUnitOfMeasure"/>
+          <Item Value="ValueDescription"/>
+          <Item Value="LegacyCode"/>
+          <Item Value="DffSize"/>
+          <Item Value="Threadlength"/>
+          <Item Value="OnhandQty"/>
+          <Item Value="OnhandQtyCgl"/>
+          <Item Value="Color"/>
+          <Item Value="selectAttr" Binds="selectAttr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ComponentLov1Iterator" id="ComponentLov12">
+      <nodeDefinition DefName="mnj.ont.model.lov.vo.ComponentLov"
+                      Name="ComponentLov120">
+        <AttrNames>
+          <Item Value="OrderedItem"/>
+          <Item Value="InventoryItemId"/>
+          <Item Value="Status"/>
+          <Item Value="Description"/>
+          <Item Value="PrimaryUnitOfMeasure"/>
+          <Item Value="ValueDescription"/>
+          <Item Value="LegacyCode"/>
+          <Item Value="Color"/>
+          <Item Value="selectAttr" Binds="selectAttr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ComponentLov1Iterator" id="ComponentLov13">
+      <nodeDefinition DefName="mnj.ont.model.lov.vo.ComponentLov"
+                      Name="ComponentLov130">
+        <AttrNames>
+          <Item Value="OrderedItem"/>
+          <Item Value="InventoryItemId"/>
+          <Item Value="Status"/>
+          <Item Value="Description"/>
+          <Item Value="PrimaryUnitOfMeasure"/>
+          <Item Value="ValueDescription"/>
+          <Item Value="LegacyCode"/>
+          <Item Value="Color"/>
+          <Item Value="selectAttr" Binds="selectAttr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="CustMnjOntBomRmlineEO_autoView1Iterator" id="Flag"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Flag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="POInfoVO1Iterator" id="POInfoVO1">
+      <nodeDefinition DefName="mnj.ont.model.views.POInfoVO" Name="POInfoVO10">
+        <AttrNames>
+          <Item Value="RequiredDate"/>
+          <Item Value="BookedQuantity"/>
+          <Item Value="BookBy"/>
+          <Item Value="SpoNo"/>
+          <Item Value="PoNo"/>
+          <Item Value="BookDate"/>
+          <Item Value="ItemId"/>
+          <Item Value="ItemDescription"/>
+          <Item Value="BomRef"/>
+          <Item Value="BomNo"/>
+          <Item Value="AuthorizationStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="MnjBomPoDffVO1Iterator" id="MnjBomPoDffVO1">
+      <nodeDefinition DefName="mnj.ont.model.views.MnjBomPoDffVO"
+                      Name="MnjBomPoDffVO10">
+        <AttrNames>
+          <Item Value="HeaderId"/>
+          <Item Value="BomId"/>
+          <Item Value="OrgId"/>
+          <Item Value="UserId"/>
+          <Item Value="PrNo"/>
+          <Item Value="PurchaseMode"/>
+          <Item Value="ShipMode"/>
+          <Item Value="DeliveryTerm"/>
+          <Item Value="SpoType"/>
+          <Item Value="NominatedBy"/>
+          <Item Value="PartialShipment"/>
+          <Item Value="ExcessShipment"/>
+          <Item Value="ActualSupplier"/>
+          <Item Value="ActualSupplierId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MnjBomPoDffVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="priceSupplierProdAreaLOV1Iterator"
+                     id="UnitPrice">
+      <AttrNames>
+        <Item Value="UnitPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false"
+                  IterBinding="priceSupplierProdAreaLOV1Iterator"
+                  Uses="LOV_ProdArea" id="ProdArea"/>
+    <listOfValues StaticList="false"
+                  IterBinding="priceSupplierProdAreaLOV1Iterator"
+                  Uses="LOV_Supplier" id="Supplier"/>
+  </bindings>
+</pageDefinition>

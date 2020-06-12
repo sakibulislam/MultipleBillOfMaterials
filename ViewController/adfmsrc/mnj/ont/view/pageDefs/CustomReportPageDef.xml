@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="CustomReportPageDef"
+                Package="mnj.ont.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="FabricCustomReportItemVO1" RangeSize="15"
+              DataControl="AppModuleDataControl"
+              id="FabricCustomReportItemVO1Iterator"/>
+    <searchRegion Binds="FabricCustomReportItemVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="FabricCustomReportItemVO1Query"/>
+    <iterator Binds="FabricCustomReportVO1" RangeSize="15"
+              DataControl="AppModuleDataControl"
+              id="FabricCustomReportVO1Iterator"/>
+    <searchRegion Binds="FabricCustomReportVO1Iterator"
+                  Criteria="FabricCustomReportVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="FabricCustomReportVO1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="FabricCustomReportItemVO1Iterator"
+          id="FabricCustomReportItemVO1">
+      <nodeDefinition DefName="mnj.ont.model.views.FabricCustomReportItemVO"
+                      Name="FabricCustomReportItemVO10">
+        <AttrNames>
+          <Item Value="ItemPrefix"/>
+          <Item Value="ItemCode"/>
+          <Item Value="Composition"/>
+          <Item Value="BookingQty"/>
+          <Item Value="DeliveryDate"/>
+          <Item Value="MeasureUnit"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="FabricCustomReportVO1Iterator"
+          id="FabricCustomReportVO1">
+      <nodeDefinition DefName="mnj.ont.model.views.FabricCustomReportVO"
+                      Name="FabricCustomReportVO10">
+        <AttrNames>
+          <Item Value="BomNumber"/>
+          <Item Value="BomDate"/>
+          <Item Value="Buyer"/>
+          <Item Value="Season"/>
+          <Item Value="StyleName"/>
+          <Item Value="StyleNo"/>
+          <Item Value="Brand"/>
+          <Item Value="ItemPrefix"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

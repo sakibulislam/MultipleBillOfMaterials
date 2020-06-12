@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShipModeLov"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.ont.model.lov.poDffLov.ShipModeLov_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery>
+    <![CDATA[SELECT   C.FLEX_VALUE_MEANING SHIP_MODE
+    FROM FND_FLEX_VALUESET_V T, FND_FLEX_VALUES B, FND_FLEX_VALUES_TL C
+   WHERE T.FLEX_VALUE_SET_NAME = 'MER_SHIP_MODE'
+     AND T.FLEX_VALUE_SET_ID = B.FLEX_VALUE_SET_ID
+     AND C.FLEX_VALUE_ID = B.FLEX_VALUE_ID
+ORDER BY C.FLEX_VALUE_MEANING]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="ShipMode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHIP_MODE"
+    Expression="SHIP_MODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.ont.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

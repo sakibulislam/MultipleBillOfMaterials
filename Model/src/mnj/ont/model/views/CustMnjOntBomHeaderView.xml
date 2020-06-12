@@ -1,0 +1,1773 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CustMnjOntBomHeaderView"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="mnj.ont.model.views.CustMnjOntBomHeaderViewRowImpl"
+  ComponentClass="mnj.ont.model.views.CustMnjOntBomHeaderViewImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p_userId"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.sessionScope.userId]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.ont.model.views.CustMnjOntBomHeaderView.p_userId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="Buyer_name"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="CustMnjOntBomHeaderView1"
+    ViewObjectName="mnj.ont.model.views.CustMnjOntBomHeaderView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="CustMnjOntBomHeaderViewCriteria"
+      FullName="mnj.ont.model.views.CustMnjOntBomHeaderView.CustMnjOntBomHeaderViewCriteria"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="BuyerCriteria1"
+    ViewObjectName="mnj.ont.model.lov.BuyerCriteria">
+    <ViewCriteriaUsage
+      Name="BuyerCriteriaCriteria"
+      FullName="mnj.ont.model.lov.BuyerCriteria.BuyerCriteriaCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="p_buyerId">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="p_style">
+        <TransientExpression><![CDATA[StyleNameC]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="BuyerVO1"
+    ViewObjectName="mnj.ont.model.lov.BuyerVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ZipperColorVO1"
+    ViewObjectName="mnj.ont.model.lov.vo.ZipperColorVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ZipperFinishVO1"
+    ViewObjectName="mnj.ont.model.lov.vo.ZipperFinishVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ZipperUniqueCodeVO1"
+    ViewObjectName="mnj.ont.model.lov.vo.ZipperUniqueCodeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ZipperTypeVO1"
+    ViewObjectName="mnj.ont.model.lov.vo.ZipperTypeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ThreadSupplierCode1"
+    ViewObjectName="mnj.ont.model.lov.ThreadSupplierCode"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="StyleNameVO1"
+    ViewObjectName="mnj.ont.model.lov.StyleNameVO">
+    <ViewCriteriaUsage
+      Name="StyleNameVOCriteria"
+      FullName="mnj.ont.model.lov.StyleNameVO.StyleNameVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="p_buyerId">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="OperatingUnitsVO1"
+    ViewObjectName="mnj.ont.model.lov.OperatingUnitsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SeasonLOV1"
+    ViewObjectName="mnj.ont.model.lov.SeasonLOV">
+    <ParameterMap>
+      <PIMap Variable="p_buyerId">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="StyleNoLOV1"
+    ViewObjectName="mnj.ont.model.lov.StyleNoLOV">
+    <ParameterMap>
+      <PIMap Variable="p_buyerId">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="OrderTypeVO1"
+    ViewObjectName="mnj.ont.model.lov.vo.OrderTypeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BomDivisionVO1"
+    ViewObjectName="mnj.ont.model.lov.vo.BomDivisionVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ShipmentVO1"
+    ViewObjectName="mnj.ont.model.lov.ShipmentVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ReqUnitName1"
+    ViewObjectName="mnj.ont.model.lov.ReqUnitName">
+    <ViewCriteriaUsage
+      Name="ReqUnitNameCriteria"
+      FullName="mnj.ont.model.lov.ReqUnitName.ReqUnitNameCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="Season_name">
+        <TransientExpression><![CDATA[SeasonC]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="style">
+        <TransientExpression><![CDATA[StyleNoC]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="Buyer_Id">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_BomNumber"
+    ListVOName="CustMnjOntBomHeaderView1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_BomNumber_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BomNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BomNumber"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BomNumber"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="CustMnjOntBomHeaderViewCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Buyer"
+    ListVOName="BuyerVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Buyer"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BuyerId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerName"/>
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustomerName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BpoNoC"
+    ListVOName="BuyerCriteria1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_BpoNoC_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BpoNoC"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BrandC"/>
+      <Item Value="EndUserDescC"/>
+      <Item Value="ItemDescC"/>
+      <Item Value="SeasonC"/>
+      <Item Value="StyleNoC"/>
+      <Item Value="OrgId"/>
+      <Item Value="SaleorderId"/>
+      <Item Value="OrderQtyC"/>
+      <Item Value="FitC"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BpoNo"/>
+      <Item Value="Brand"/>
+      <Item Value="EndUser"/>
+      <Item Value="ItemDescription"/>
+      <Item Value="Season"/>
+      <Item Value="StyleNo"/>
+      <Item Value="OrgId"/>
+      <Item Value="HeaderId"/>
+      <Item Value="OrderedQty"/>
+      <Item Value="Fit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BpoNo"/>
+      <Item Value="Brand"/>
+      <Item Value="CustomerName"/>
+      <Item Value="EndUser"/>
+      <Item Value="Fit"/>
+      <Item Value="ItemDescription"/>
+      <Item Value="OrderNumber"/>
+      <Item Value="OrderedQty"/>
+      <Item Value="Season"/>
+      <Item Value="StyleName"/>
+      <Item Value="StyleNo"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="BuyerCriteriaCriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute1"
+    ListVOName="ZipperColorVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute1"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Color"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Color"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute2"
+    ListVOName="ZipperColorVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute2"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Color"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Color"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute3"
+    ListVOName="ZipperColorVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute3"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Color"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Color"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute4"
+    ListVOName="ZipperFinishVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute4"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Finishing"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Finishing"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute5"
+    ListVOName="ZipperFinishVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute5"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Finishing"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Finishing"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute6"
+    ListVOName="ZipperFinishVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute6"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Finishing"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Finishing"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute7"
+    ListVOName="ZipperUniqueCodeVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute7"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UniqueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UniqueCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute8"
+    ListVOName="ZipperUniqueCodeVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute8"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UniqueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UniqueCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute9"
+    ListVOName="ZipperUniqueCodeVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute9"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UniqueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UniqueCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute10"
+    ListVOName="ZipperTypeVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute10"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FlexValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FlexValue"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute11"
+    ListVOName="ZipperTypeVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute11"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FlexValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FlexValue"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute12"
+    ListVOName="ZipperTypeVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute12"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FlexValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FlexValue"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute13"
+    ListVOName="ThreadSupplierCode1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute13"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SupplierCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SupplierCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SeasonC"
+    ListVOName="SeasonLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_SeasonC_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SeasonC"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"
+      Name="SeasonLOVCriteria"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_StyleNoC"
+    ListVOName="StyleNoLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_StyleNoC_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StyleNoC"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CurrentStyleNo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StyleNo"/>
+      <Item Value="CurrentStyleNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StyleNo"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"
+      Name="StyleNoLOVCriteria"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OrderType"
+    ListVOName="OrderTypeVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OrderType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FlexValue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Division"
+    ListVOName="BomDivisionVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Division"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FlexValue"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_StyleNameNew"
+    ListVOName="StyleNameVO1"
+    ListRangeSize="10"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StyleNameNew"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CurrentStyleName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StyleName"/>
+      <Item Value="CurrentStyleName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+    <ViewCriteriaUsage
+      Name="StyleNameVOCriteria"
+      FullName="mnj.ont.model.lov.StyleNameVO.StyleNameVOCriteria"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ShipmentUnit"
+    ListVOName="ShipmentVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ShipmentUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_UnitName"
+    ListVOName="ReqUnitName1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_UnitName_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="UnitName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OrgId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProductionUnit"/>
+      <Item Value="OrgId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProductionUnit"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="hide"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[/* Formatted on 3/25/2019 10:25:23 AM (QP5 v5.256.13226.35510) */
+  SELECT CustMnjOntBomHeader.BOM_ID,
+         CustMnjOntBomHeader.BOM_NUMBER,
+         (SELECT LISTAGG (BPO_NO, ',') WITHIN GROUP (ORDER BY BPO_NO)
+            FROM (SELECT DISTINCT MnjBomBpoLinesAll.BPO_NO
+                    FROM MNJ_BOM_BPO_LINES_ALL MnjBomBpoLinesAll
+                   WHERE CustMnjOntBomHeader.BOM_ID = MnjBomBpoLinesAll.BOM_ID))
+         BPO_NO,
+         (select sum(bpoL.ORDER_QTY) FROM MNJ_BOM_BPO_LINES_ALL bpoL where bpoL.BOM_ID= CustMnjOntBomHeader.BOM_ID )OrderQty,
+         CustMnjOntBomHeader.BOM_DATE,
+         CustMnjOntBomHeader.SALEORDER_ID,
+         CustMnjOntBomHeader.ITEM_CODE,
+         CustMnjOntBomHeader.BOM_STATUS,
+         CustMnjOntBomHeader.REVISED_REMARKS,
+         CustMnjOntBomHeader.RELEASE_DATE,
+         CustMnjOntBomHeader.VERSION_NUMBER,
+         CustMnjOntBomHeader.VERSION_DATE,
+         CustMnjOntBomHeader.LINK_OAF_ID,
+         CustMnjOntBomHeader.EFFECTIVE_START_DATE,
+         CustMnjOntBomHeader.EFFECTIVE_END_DATE,
+         CustMnjOntBomHeader.LAST_UPDATE_DATE,
+         CustMnjOntBomHeader.LAST_UPDATED_BY,
+         CustMnjOntBomHeader.CREATION_DATE,
+         CustMnjOntBomHeader.CREATED_BY,
+         CustMnjOntBomHeader.HEADER_ID,
+         CustMnjOntBomHeader.LINE_ID,
+         CustMnjOntBomHeader.USER_ITEM_DESCRIPTION,
+         CustMnjOntBomHeader.LEGACY_BOMID,
+         CustMnjOntBomHeader.ORG_ID,
+         CustMnjOntBomHeader.POST,
+         CustMnjOntBomHeader.LAST_UPDATE_LOGIN,
+         CustMnjOntBomHeader.ATTRIBUTE1,
+         CustMnjOntBomHeader.ATTRIBUTE2,
+         CustMnjOntBomHeader.ATTRIBUTE3,
+         CustMnjOntBomHeader.ATTRIBUTE4,
+         CustMnjOntBomHeader.ATTRIBUTE5,
+         CustMnjOntBomHeader.ATTRIBUTE6,
+         CustMnjOntBomHeader.ATTRIBUTE7,
+         CustMnjOntBomHeader.ATTRIBUTE8,
+         CustMnjOntBomHeader.ATTRIBUTE9,
+         CustMnjOntBomHeader.ATTRIBUTE10,
+         CustMnjOntBomHeader.ATTRIBUTE11,
+         CustMnjOntBomHeader.ATTRIBUTE12,
+         CustMnjOntBomHeader.ATTRIBUTE13,
+         CustMnjOntBomHeader.ATTRIBUTE14,
+         CustMnjOntBomHeader.ATTRIBUTE15,
+         (SELECT ooha.ORDER_NUMBER
+            FROM oe_order_headers_all ooha
+           WHERE ooha.HEADER_ID = CustMnjOntBomHeader.Saleorder_Id)
+            sale_order_number,
+         (SELECT CU.CUSTOMER_NAME
+            FROM AR_CUSTOMERS CU
+           WHERE CU.CUSTOMER_ID = CustMnjOntBomHeader.Buyer_Id)
+            buyer,
+         (SELECT ooha.ORDER_NUMBER
+            FROM oe_order_headers_all ooha
+           WHERE ooha.HEADER_ID = CustMnjOntBomHeader.Saleorder_Id)
+            sale_order_number2,
+         CustMnjOntBomHeader.Buyer_Id,
+         CustMnjOntBomHeader.Bpo_No_c,
+         CustMnjOntBomHeader.Brand_c,
+         CustMnjOntBomHeader.End_User_Desc_c,
+         CustMnjOntBomHeader.Fit_c,
+         CustMnjOntBomHeader.Item_Desc_c,
+         CustMnjOntBomHeader.Order_Qty_c,
+         CustMnjOntBomHeader.Season_c,
+         CustMnjOntBomHeader.Style_Name_c,
+         CustMnjOntBomHeader.Style_No_c,
+         CustMnjOntBomHeader.ATTRIBUTE16,
+         CustMnjOntBomHeader.ATTRIBUTE17,
+         CustMnjOntBomHeader.ATTRIBUTE18,
+         CustMnjOntBomHeader.ATTRIBUTE19,
+         CustMnjOntBomHeader.ATTRIBUTE20,
+         CustMnjOntBomHeader.ATTRIBUTE21,
+         CustMnjOntBomHeader.ATTRIBUTE22,
+         CustMnjOntBomHeader.ATTRIBUTE23,
+         CustMnjOntBomHeader.ATTRIBUTE24,
+         CustMnjOntBomHeader.ATTRIBUTE25,
+         CustMnjOntBomHeader.ATTRIBUTE26,
+         CustMnjOntBomHeader.ATTRIBUTE27,
+         CustMnjOntBomHeader.ATTRIBUTE28,
+         CustMnjOntBomHeader.ATTRIBUTE29,
+         CustMnjOntBomHeader.ATTRIBUTE30,
+         CustMnjOntBomHeader.Error_Message,
+         (SELECT name
+            FROM hr_all_organization_units haou
+           WHERE CustMnjOntBomHeader.Org_Id = haou.organization_id)
+            unit_name,
+         (SELECT name
+            FROM hr_all_organization_units haou
+           WHERE CustMnjOntBomHeader.Org_Id = haou.organization_id)
+            shipment_unit,
+         (SELECT COUNT (1)
+            FROM MNJ_FILE_UPD_DWN ff
+           WHERE ff.file_id = 'MB' || CustMnjOntBomHeader.Bom_Number)
+            ATTACHEMNT,
+         (SELECT SUM (ORDER_QTY)
+            FROM MNJ_BOM_BPO_LINES_ALL MB
+           WHERE MB.BOM_ID = CustMnjOntBomHeader.BOM_ID)
+            TOT_ORD_QTY,
+         CustMnjOntBomHeader.Order_Type,
+         CustMnjOntBomHeader.Division,
+         CustMnjOntBomHeader.STYLE_NAME_NEW,
+         (SELECT DECODE (StyleLineEO.TRACK_BASIS,
+                         'Style Name', StyleLineEO.STYLE_NAME,
+                         'Style Number', StyleLineEO.STYLE_NUMBER)
+            FROM PWC_MFG_BSS_STYLE_L StyleLineEO,
+                 pwc_mfg_bss_buyer_h pwcmfgbssbuyerh,
+                 PWC_MFG_BSS_SEASON_D SeasonDetailEO
+           WHERE     StyleLineEO.STYLE_IDENTIFIER = STYLE_NO_C
+                 AND pwcmfgbssbuyerh.BUYER_ID = BUYER_ID
+                 --AND   pwcmfgbssbuyerh.ORG_ID = mmoda.final_mfg_org_id
+                 AND StyleLineEO.HEADER_ID = pwcmfgbssbuyerh.HEADER_ID
+                 AND SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID)
+            CURRENT_STYLE_NO,
+         (SELECT DECODE (StyleLineEO.TRACK_BASIS,
+                         'Style Name', StyleLineEO.STYLE_NAME,
+                         'Style Number', StyleLineEO.STYLE_NUMBER)
+            FROM PWC_MFG_BSS_STYLE_L StyleLineEO,
+                 pwc_mfg_bss_buyer_h pwcmfgbssbuyerh,
+                 PWC_MFG_BSS_SEASON_D SeasonDetailEO
+           WHERE     StyleLineEO.STYLE_IDENTIFIER = STYLE_NAME_NEW
+                 AND pwcmfgbssbuyerh.BUYER_ID = BUYER_ID
+                 --AND   pwcmfgbssbuyerh.ORG_ID = mmoda.final_mfg_org_id
+                 AND StyleLineEO.HEADER_ID = pwcmfgbssbuyerh.HEADER_ID
+                 AND SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID)
+            CURRENT_STYLE_NAME
+    FROM CUST_MNJ_ONT_BOM CustMnjOntBomHeader
+   WHERE        SYSDATE BETWEEN CustMnjOntBomHeader.effective_start_date
+                            AND NVL (CustMnjOntBomHeader.effective_end_date,
+                                     SYSDATE)
+            AND CustMnjOntBomHeader.Buyer_Id IN (SELECT V.BUYER_ID
+                                                   FROM MNJ_USER_WISE_BUYERS_DET_V v
+                                                  WHERE V.USER_ID =
+                                                           NVL ( :p_userId,
+                                                                V.USER_ID))
+        
+ORDER BY CustMnjOntBomHeader.Bom_Number DESC]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="CustMnjOntBomHeader"
+    Entity="mnj.ont.model.entities.CustMnjOntBomHeader"/>
+  <ViewAttribute
+    Name="BomId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BomId"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="BOM_ID"/>
+  <ViewAttribute
+    Name="BomNumber"
+    LOVName="LOV_BomNumber"
+    PrecisionRule="true"
+    EntityAttrName="BomNumber"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="BOM_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="mnj.ont.model.views.CustMnjOntBomHeaderView.BomNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BpoNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BPO_NO"
+    Expression="BPO_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Orderqty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ORDERQTY"
+    Expression="ORDERQTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BomDate"
+    PrecisionRule="true"
+    EntityAttrName="BomDate"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="BOM_DATE"/>
+  <ViewAttribute
+    Name="SaleorderId"
+    PrecisionRule="true"
+    EntityAttrName="SaleorderId"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="SALEORDER_ID"/>
+  <ViewAttribute
+    Name="ItemCode"
+    PrecisionRule="true"
+    EntityAttrName="ItemCode"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ITEM_CODE"/>
+  <ViewAttribute
+    Name="BomStatus"
+    PrecisionRule="true"
+    EntityAttrName="BomStatus"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="BOM_STATUS"/>
+  <ViewAttribute
+    Name="RevisedRemarks"
+    PrecisionRule="true"
+    EntityAttrName="RevisedRemarks"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="REVISED_REMARKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ReleaseDate"
+    PrecisionRule="true"
+    EntityAttrName="ReleaseDate"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="RELEASE_DATE"/>
+  <ViewAttribute
+    Name="VersionNumber"
+    PrecisionRule="true"
+    EntityAttrName="VersionNumber"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="VERSION_NUMBER"/>
+  <ViewAttribute
+    Name="VersionDate"
+    PrecisionRule="true"
+    EntityAttrName="VersionDate"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="VERSION_DATE"/>
+  <ViewAttribute
+    Name="LinkOafId"
+    PrecisionRule="true"
+    EntityAttrName="LinkOafId"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="LINK_OAF_ID"/>
+  <ViewAttribute
+    Name="EffectiveStartDate"
+    PrecisionRule="true"
+    EntityAttrName="EffectiveStartDate"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="EFFECTIVE_START_DATE"/>
+  <ViewAttribute
+    Name="EffectiveEndDate"
+    PrecisionRule="true"
+    EntityAttrName="EffectiveEndDate"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="EFFECTIVE_END_DATE"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="HeaderId"
+    PrecisionRule="true"
+    EntityAttrName="HeaderId"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="HEADER_ID"/>
+  <ViewAttribute
+    Name="LineId"
+    PrecisionRule="true"
+    EntityAttrName="LineId"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="LINE_ID"/>
+  <ViewAttribute
+    Name="UserItemDescription"
+    PrecisionRule="true"
+    EntityAttrName="UserItemDescription"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="USER_ITEM_DESCRIPTION"/>
+  <ViewAttribute
+    Name="LegacyBomid"
+    PrecisionRule="true"
+    EntityAttrName="LegacyBomid"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="LEGACY_BOMID"/>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ORG_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Post"
+    PrecisionRule="true"
+    EntityAttrName="Post"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="POST"/>
+  <ViewAttribute
+    Name="LastUpdateLogin"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateLogin"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="LAST_UPDATE_LOGIN"/>
+  <ViewAttribute
+    Name="Attribute1"
+    PrecisionRule="true"
+    EntityAttrName="Attribute1"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE1"
+    LOVName="LOV_Attribute1">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="mnj.ont.model.views.CustMnjOntBomHeaderView.Attribute1_LABEL"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute2"
+    PrecisionRule="true"
+    EntityAttrName="Attribute2"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE2"
+    LOVName="LOV_Attribute2">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute3"
+    PrecisionRule="true"
+    EntityAttrName="Attribute3"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE3"
+    LOVName="LOV_Attribute3">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute4"
+    PrecisionRule="true"
+    EntityAttrName="Attribute4"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE4"
+    LOVName="LOV_Attribute4">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute5"
+    PrecisionRule="true"
+    EntityAttrName="Attribute5"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE5"
+    LOVName="LOV_Attribute5">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute6"
+    PrecisionRule="true"
+    EntityAttrName="Attribute6"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE6"
+    LOVName="LOV_Attribute6">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute7"
+    PrecisionRule="true"
+    EntityAttrName="Attribute7"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE7"
+    LOVName="LOV_Attribute7">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute8"
+    PrecisionRule="true"
+    EntityAttrName="Attribute8"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE8"
+    LOVName="LOV_Attribute8">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute9"
+    PrecisionRule="true"
+    EntityAttrName="Attribute9"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE9"
+    LOVName="LOV_Attribute9">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute10"
+    PrecisionRule="true"
+    EntityAttrName="Attribute10"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE10"
+    LOVName="LOV_Attribute10">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute11"
+    PrecisionRule="true"
+    EntityAttrName="Attribute11"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE11"
+    LOVName="LOV_Attribute11">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute12"
+    PrecisionRule="true"
+    EntityAttrName="Attribute12"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE12"
+    LOVName="LOV_Attribute12">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute13"
+    PrecisionRule="true"
+    EntityAttrName="Attribute13"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE13"
+    LOVName="LOV_Attribute13">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute14"
+    PrecisionRule="true"
+    EntityAttrName="Attribute14"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE14"/>
+  <ViewAttribute
+    Name="Attribute15"
+    PrecisionRule="true"
+    EntityAttrName="Attribute15"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="SaleOrderNumber"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SALE_ORDER_NUMBER"
+    Expression="SALE_ORDER_NUMBER"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.ont.model.views.CustMnjOntBomHeaderView.SaleOrderNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Buyer"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER"
+    Expression="BUYER"
+    SQLType="VARCHAR"
+    LOVName="LOV_Buyer">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SaleOrderNumber2"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SALE_ORDER_NUMBER2"
+    Expression="SALE_ORDER_NUMBER2"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    PrecisionRule="true"
+    EntityAttrName="BuyerId"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="BUYER_ID"/>
+  <ViewAttribute
+    Name="BpoNoC"
+    PrecisionRule="true"
+    EntityAttrName="BpoNoC"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="BPO_NO_C"
+    LOVName="LOV_BpoNoC">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BrandC"
+    PrecisionRule="true"
+    EntityAttrName="BrandC"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="BRAND_C"/>
+  <ViewAttribute
+    Name="EndUserDescC"
+    PrecisionRule="true"
+    EntityAttrName="EndUserDescC"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="END_USER_DESC_C"/>
+  <ViewAttribute
+    Name="FitC"
+    PrecisionRule="true"
+    EntityAttrName="FitC"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="FIT_C"/>
+  <ViewAttribute
+    Name="ItemDescC"
+    PrecisionRule="true"
+    EntityAttrName="ItemDescC"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ITEM_DESC_C"/>
+  <ViewAttribute
+    Name="OrderQtyC"
+    PrecisionRule="true"
+    EntityAttrName="OrderQtyC"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ORDER_QTY_C"/>
+  <ViewAttribute
+    Name="SeasonC"
+    PrecisionRule="true"
+    EntityAttrName="SeasonC"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="SEASON_C"
+    LOVName="LOV_SeasonC">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleNameC"
+    PrecisionRule="true"
+    EntityAttrName="StyleNameC"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="STYLE_NAME_C">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleNoC"
+    PrecisionRule="true"
+    EntityAttrName="StyleNoC"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="STYLE_NO_C"
+    LOVName="LOV_StyleNoC">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute16"
+    PrecisionRule="true"
+    EntityAttrName="Attribute16"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE16">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute17"
+    PrecisionRule="true"
+    EntityAttrName="Attribute17"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE17">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute18"
+    PrecisionRule="true"
+    EntityAttrName="Attribute18"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE18">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute19"
+    PrecisionRule="true"
+    EntityAttrName="Attribute19"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE19">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute20"
+    PrecisionRule="true"
+    EntityAttrName="Attribute20"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE20">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute21"
+    PrecisionRule="true"
+    EntityAttrName="Attribute21"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE21">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute22"
+    PrecisionRule="true"
+    EntityAttrName="Attribute22"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE22">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute23"
+    PrecisionRule="true"
+    EntityAttrName="Attribute23"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE23">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute24"
+    PrecisionRule="true"
+    EntityAttrName="Attribute24"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE24">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute25"
+    PrecisionRule="true"
+    EntityAttrName="Attribute25"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE25">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute26"
+    PrecisionRule="true"
+    EntityAttrName="Attribute26"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE26">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute27"
+    PrecisionRule="true"
+    EntityAttrName="Attribute27"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE27">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute28"
+    PrecisionRule="true"
+    EntityAttrName="Attribute28"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE28">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute29"
+    PrecisionRule="true"
+    EntityAttrName="Attribute29"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE29">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute30"
+    PrecisionRule="true"
+    EntityAttrName="Attribute30"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ATTRIBUTE30">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ErrorMessage"
+    PrecisionRule="true"
+    EntityAttrName="ErrorMessage"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ERROR_MESSAGE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UnitName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="UNIT_NAME"
+    Expression="UNIT_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_UnitName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipmentUnit"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SHIPMENT_UNIT"
+    Expression="SHIPMENT_UNIT"
+    SQLType="VARCHAR"
+    LOVName="LOV_ShipmentUnit">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attachemnt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ATTACHEMNT"
+    Expression="ATTACHEMNT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotOrdQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="TOT_ORD_QTY"
+    Expression="TOT_ORD_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderType"
+    PrecisionRule="true"
+    EntityAttrName="OrderType"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="ORDER_TYPE"
+    LOVName="LOV_OrderType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Division"
+    PrecisionRule="true"
+    EntityAttrName="Division"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="DIVISION"
+    LOVName="LOV_Division">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleNameNew"
+    PrecisionRule="true"
+    EntityAttrName="StyleNameNew"
+    EntityUsage="CustMnjOntBomHeader"
+    AliasName="STYLE_NAME_NEW"
+    LOVName="LOV_StyleNameNew">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentStyleNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CURRENT_STYLE_NO"
+    Expression="CURRENT_STYLE_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentStyleName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CURRENT_STYLE_NAME"
+    Expression="CURRENT_STYLE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="CustMnjOntBomHeaderViewCriteria"
+    ViewObjectName="mnj.ont.model.views.CustMnjOntBomHeaderView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow36"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Buyer"
+        ViewAttribute="Buyer"
+        Operator="="
+        Conjunction="AND"
+        Value=":Buyer_name"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="CustMnjOntBomRmlineLinesView"
+    ViewLink="mnj.ont.model.views.PkBomLineFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CustMnjOntBomOblineDetailsView"
+    ViewLink="mnj.ont.model.views.CustMnjOntBomOblineFk2Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="BomBpoLinesAllVO"
+    ViewLink="mnj.ont.model.views.HeaderLinesVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="BomLinesPRHistoryVO"
+    ViewLink="mnj.ont.model.views.HeaderPRHistoryLinesVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="FabricCustomReportVO"
+    ViewLink="mnj.ont.model.views.FabricCustomReportVLink"
+    Type="oracle.jbo.Row"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="MaterialSheetVO"
+    ViewLink="mnj.ont.model.views.MaterialSheetViewLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="MnjBomPoDffVO"
+    ViewLink="mnj.ont.model.views.poInformationVSpoDffViewLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.ont.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

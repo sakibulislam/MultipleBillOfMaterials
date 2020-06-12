@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelHeader text="Previous Purchase Information" id="ph2">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:commandButton text="Back" id="cb1" action="backToEdit"
+                                  inlineStyle="font-weight:bold;height:30px;"
+                                  icon="/icons/back.png"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.POInformationVO1.collectionModel}"
+                      var="row" rows="#{bindings.POInformationVO1.rangeSize}"
+                      emptyText="#{bindings.POInformationVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.POInformationVO1.rangeSize}"
+                      rowBandingInterval="1"
+                      filterModel="#{bindings.POInformationVO1Query.queryDescriptor}"
+                      queryListener="#{bindings.POInformationVO1Query.processQuery}"
+                      filterVisible="true" varStatus="vs"
+                      selectedRowKeys="#{bindings.POInformationVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.POInformationVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1" columnSelection="multiple" autoHeightRows="0"
+                      allDetailsEnabled="true">
+              <af:column sortProperty="SpoNo" filterable="true" sortable="true"
+                         headerText="#PR"
+                         id="c2" align="center"
+                         filterFeatures="caseInsensitive" width="60">
+                <af:outputText value="#{row.SpoNo}" id="ot10"/>
+              </af:column>
+              <af:column sortProperty="PoNo" filterable="true" sortable="true"
+                         headerText="#PO"
+                         id="c4" align="center"
+                         filterFeatures="caseInsensitive" width="60">
+                <af:outputText value="#{row.PoNo}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="BomNo" filterable="true" sortable="true"
+                         headerText="BOM No"
+                         id="c6" align="center"
+                         filterFeatures="caseInsensitive" width="60">
+                <af:outputText value="#{row.BomNo}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="BomRef" filterable="true" sortable="true"
+                         headerText="Style"
+                         id="c9" align="center"
+                         filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.BomRef}" id="ot9"/>
+              </af:column>
+              <af:column sortProperty="ItemDescription" filterable="true"
+                         sortable="true"
+                         headerText="Description"
+                         id="c10" align="center"
+                         filterFeatures="caseInsensitive" width="400"
+                         noWrap="false">
+                <af:outputText value="#{row.ItemDescription}" id="ot2"
+                               inlineStyle="white-space: pre-wrap;"/>
+              </af:column>
+              <af:column sortProperty="BookedQuantity" filterable="true"
+                         sortable="true"
+                         headerText="Booked Qty"
+                         id="c1" align="center"
+                         filterFeatures="caseInsensitive" width="70">
+                <af:outputText value="#{row.BookedQuantity}" id="ot6">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.POInformationVO1.hints.BookedQuantity.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="BookBy" filterable="true" sortable="true"
+                         headerText="Booked By"
+                         id="c7" align="center"
+                         filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.BookBy}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="RequiredDate" filterable="true"
+                         sortable="true"
+                         headerText="Required Date"
+                         id="c8" align="center"
+                         filterFeatures="caseInsensitive">
+                <f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.RequiredDate}"
+                                id="id1"/>
+                </f:facet>
+                <af:outputText value="#{row.RequiredDate}" id="ot4">
+                  <af:convertDateTime pattern="#{bindings.POInformationVO1.hints.RequiredDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="BookDate" filterable="true"
+                         sortable="true"
+                         headerText="Book Date"
+                         id="c3" align="center"
+                         filterFeatures="caseInsensitive">
+                <f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.BookDate}" id="id2"/>
+                </f:facet>
+                <af:outputText value="#{row.BookDate}" id="ot8">
+                  <af:convertDateTime pattern="#{bindings.POInformationVO1.hints.BookDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="AuthorizationStatus" filterable="true"
+                         sortable="true"
+                         headerText="Authorization Status"
+                         id="c5" align="center"
+                         filterFeatures="caseInsensitive" width="80">
+                <af:outputText value="#{row.AuthorizationStatus}" id="ot7"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelHeader>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="StyleNoLOV"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.ont.model.lov.StyleNoLOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_StyleNo"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p_buyerId"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[SELECT distinct mmph.style_no   ,
+
+             
+    (   SELECT  DECODE(StyleLineEO.TRACK_BASIS,'Style Name',StyleLineEO.STYLE_NAME,'Style Number',StyleLineEO.STYLE_NUMBER)
+        FROM  
+        
+                PWC_MFG_BSS_STYLE_L StyleLineEO,
+                pwc_mfg_bss_buyer_h pwcmfgbssbuyerh,
+                PWC_MFG_BSS_SEASON_D SeasonDetailEO   
+        WHERE  1=1  
+       --AND   pwcmfgbssbuyerh.ORG_ID = mmoda.final_mfg_org_id
+        AND     StyleLineEO.HEADER_ID = pwcmfgbssbuyerh.HEADER_ID
+        AND     SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID 
+         AND     pwcmfgbssbuyerh.BUYER_ID = mmph.BUYER_ID
+        and     StyleLineEO.STYLE_IDENTIFIER = mmph.style_no   )  current_style_no
+       
+
+    
+  FROM mnj_mfg_precosting_h mmph, ar_customers ac
+ where ac.CUSTOMER_ID = mmph.buyer_id
+   and mmph.style_no is not null
+  and ac.CUSTOMER_ID = :p_buyerId]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="StyleNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE_NO"
+    Expression="STYLE_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentStyleNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CURRENT_STYLE_NO"
+    Expression="CURRENT_STYLE_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="StyleNoLOVCriteria"
+    ViewObjectName="mnj.ont.model.lov.StyleNoLOV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow34"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="StyleNoLOVCriteria_vcrow34_StyleNo"
+        ViewAttribute="StyleNo"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":P_StyleNo"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="mnj.ont.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

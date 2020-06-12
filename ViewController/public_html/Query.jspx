@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelHeader text="Master BoM" id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.CustMnjOntBomHeaderViewCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.CustMnjOntBomHeaderViewCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.CustMnjOntBomHeaderViewCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.CustMnjOntBomHeaderViewCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1:resId1"/>
+            <af:panelTabbed id="pt1" styleClass="AFStretchWidth"
+                            inlineStyle="height:600px;">
+              <af:showDetailItem text="Done" id="sdi1">
+                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                  <f:facet name="menus">
+                    <af:menu text="Actions" id="m2">
+                      <af:commandMenuItem text="Copy" id="cmi1"
+                                          action="#{CopyPostBean.Copy}"/>
+                      <af:commandMenuItem text="Post" id="cmi2"
+                                          action="#{CopyPostBean.Post}"/>
+                    </af:menu>
+                  </f:facet>
+                  <f:facet name="toolbar">
+                    <af:toolbar id="t1">
+                      <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                                        text="Create"
+                                        disabled="#{sessionScope.userId==null? 'true':'false'}"
+                                        id="cb1" action="goEdit"
+                                        inlineStyle="height:30px;font-weight:bold;"
+                                        icon="/icons/add2.png"/>
+                      <af:commandButton text="Open" id="cb3" action="goEdit"
+                                        inlineStyle="height:30px;font-weight:bold;"
+                                        icon="/icons/edit.png"/>
+                      <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                        text="Delete"
+                                        disabled="#{!bindings.Delete.enabled}"
+                                        id="cb2"
+                                        inlineStyle="height:30px;font-weight:bold;"
+                                        icon="/icons/delete.png"/>
+                      <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                        text="Undo"
+                                        disabled="#{!bindings.Rollback.enabled}"
+                                        immediate="true" id="cb5"
+                                        inlineStyle="height:30px;font-weight:bold;"
+                                        icon="/icons/cancel2.png">
+                        <af:resetActionListener/>
+                      </af:commandButton>
+                      <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                        text="Save"
+                                        disabled="#{!bindings.Commit.enabled}"
+                                        id="cb4"
+                                        inlineStyle="height:30px;font-weight:bold;"
+                                        icon="/icons/save.png"/>
+                      <af:commandButton text="Custom Report" id="cb7"
+                                        inlineStyle="height:30px;font-weight:bold;"
+                                        action="customReport"
+                                        icon="/icons/form.png"/>
+                    </af:toolbar>
+                  </f:facet>
+                  <f:facet name="statusbar"/>
+                  <af:table value="#{bindings.CustMnjOntBomHeaderView1.collectionModel}"
+                            var="row"
+                            rows="#{bindings.CustMnjOntBomHeaderView1.rangeSize}"
+                            emptyText="#{bindings.CustMnjOntBomHeaderView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            fetchSize="#{bindings.CustMnjOntBomHeaderView1.rangeSize}"
+                            rowBandingInterval="1"
+                            filterModel="#{bindings.CustMnjOntBomHeaderViewCriteriaQuery.queryDescriptor}"
+                            queryListener="#{bindings.CustMnjOntBomHeaderViewCriteriaQuery.processQuery}"
+                            filterVisible="true" varStatus="vs"
+                            selectedRowKeys="#{bindings.CustMnjOntBomHeaderView1.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.CustMnjOntBomHeaderView1.collectionModel.makeCurrent}"
+                            rowSelection="single" id="resId1"
+                            partialTriggers="::cb1 ::cb3 ::cb2 ::cb5 ::cb4"
+                            binding="#{CopyPostBean.queryTable}"
+                            contentDelivery="immediate"
+                            styleClass="AFStretchWidth" autoHeightRows="0"
+                            columnSelection="multiple" columnStretching="last">
+                    <af:column sortProperty="BomNumber" filterable="true"
+                               sortable="true" headerText="BOM Number"
+                               id="resId1c2" align="center" width="120"
+                               inlineStyle="height:35px; text-align:center; font-size:12px; font-family:'OpenSans-Bold'; background-image:none; vertical-align:middle; border-left:solid 1px; font-weight:bold;">
+                      <af:outputText value="#{row.BomNumber}" id="ot5">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.CustMnjOntBomHeaderView1.hints.BomNumber.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="BomDate" filterable="true"
+                               sortable="true" headerText="BOM Date"
+                               id="resId1c3" align="center" width="120">
+                      <f:facet name="filter">
+                        <af:inputDate value="#{vs.filterCriteria.BomDate}"
+                                      id="id1"/>
+                      </f:facet>
+                      <af:outputText value="#{row.BomDate}" id="ot1">
+                        <af:convertDateTime pattern="#{bindings.CustMnjOntBomHeaderView1.hints.BomDate.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="Buyer" filterable="true"
+                               sortable="true" headerText="Buyer" id="resId1c5"
+                               align="center" width="200"
+                               filterFeatures="caseInsensitive" noWrap="false">
+                      <af:outputText value="#{row.Buyer}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="SeasonC" filterable="true"
+                               sortable="true" headerText="Season" id="c5"
+                               align="center" filterFeatures="caseInsensitive">
+                      <af:outputText value="#{row.SeasonC}" id="ot8"/>
+                    </af:column>
+                    <af:column headerText="Style Name" id="c4" align="center"
+                               sortable="true" filterable="true"
+                               filterFeatures="caseInsensitive" width="150"
+                               noWrap="false" sortProperty="StyleNameNew">
+                      <af:inputText value="#{row.bindings.StyleNameNew.inputValue}"
+                                    label="#{bindings.CustMnjOntBomHeaderView1.hints.StyleNameNew.label}"
+                                    required="#{bindings.CustMnjOntBomHeaderView1.hints.StyleNameNew.mandatory}"
+                                    columns="#{bindings.CustMnjOntBomHeaderView1.hints.StyleNameNew.displayWidth}"
+                                    maximumLength="#{bindings.CustMnjOntBomHeaderView1.hints.StyleNameNew.precision}"
+                                    shortDesc="#{bindings.CustMnjOntBomHeaderView1.hints.StyleNameNew.tooltip}"
+                                    id="it2" readOnly="true">
+                        <f:validator binding="#{row.bindings.StyleNameNew.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="StyleNoC" filterable="true"
+                               sortable="true" headerText="Style No." id="c7"
+                               align="center" width="120" noWrap="false"
+                               filterFeatures="caseInsensitive">
+                      <af:outputText value="#{row.StyleNoC}" id="ot7"/>
+                    </af:column>
+                    <af:column headerText="Req. Unit" id="c2" sortable="true"
+                               filterable="true" align="center"
+                               sortProperty="UnitName"
+                               filterFeatures="caseInsensitive" width="120">
+                      <af:outputText value="#{row.UnitName}" id="ot4"/>
+                    </af:column>
+                    <af:column headerText="Shipt To Unit" id="c3" width="120"
+                               align="center" sortable="true" filterable="true"
+                               sortProperty="ShipmentUnit">
+                      <af:selectOneChoice value="#{row.bindings.ShipmentUnit.inputValue}"
+                                          label="#{row.bindings.ShipmentUnit.label}"
+                                          required="#{bindings.CustMnjOntBomHeaderView1.hints.ShipmentUnit.mandatory}"
+                                          shortDesc="#{bindings.CustMnjOntBomHeaderView1.hints.ShipmentUnit.tooltip}"
+                                          id="soc1">
+                        <f:selectItems value="#{row.bindings.ShipmentUnit.items}"
+                                       id="si1"/>
+                      </af:selectOneChoice>
+                    </af:column>
+                    <af:column headerText="Attachment" id="c1" align="center"
+                               sortable="true" filterable="true" width="80">
+                      <af:commandLink text="#{row.bindings.Attachemnt.inputValue=='0'? '...' : row.bindings.Attachemnt.inputValue}"
+                                      id="cl1"
+                                      action="#{pageFlowScope.TestPageFlowBean.callAttachment}">
+                        <af:showPopupBehavior triggerType="mouseOver"
+                                              popupId=":::p1"/>
+                      </af:commandLink>
+                    </af:column>
+                  </af:table>
+                </af:panelCollection>
+              </af:showDetailItem>
+            </af:panelTabbed>
+            <af:popup id="p1"
+                      popupFetchListener="#{pageFlowScope.TestPageFlowBean.AttachFetchListener}"
+                      popupCanceledListener="#{pageFlowScope.TestPageFlowBean.CancelLsitener}"
+                      contentDelivery="lazyUncached">
+              <af:noteWindow id="nw1">
+                <af:outputText value="None" id="ot3"
+                               binding="#{pageFlowScope.TestPageFlowBean.showAttachText}"/>
+              </af:noteWindow>
+            </af:popup>
+          </af:panelHeader>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

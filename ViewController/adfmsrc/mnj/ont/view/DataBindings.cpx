@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.62.29" id="DataBindings" SeparateXMLFiles="false"
+             Package="mnj.ont.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/Query.jspx" usageId="mnj_ont_view_QueryPageDef"/>
+    <page path="/Edit.jspx" usageId="mnj_ont_view_EditPageDef"/>  
+    <page path="/POInfo.jspx" usageId="mnj_ont_view_POInfoPageDef"/>
+    <page path="/Report.jspx" usageId="mnj_ont_view_ReportPageDef"/>
+    <page path="/CustomReport.jspx" usageId="mnj_ont_view_CustomReportPageDef"/>
+    <page path="/multiBOM.jspx" usageId="mnj_ont_view_multiBOMPageDef"/>
+    <page path="/MultiEdit.jspx" usageId="mnj_ont_view_MultiEditPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mnj_ont_view_QueryPageDef"
+          path="mnj.ont.view.pageDefs.QueryPageDef"/>
+    <page id="mnj_ont_view_EditPageDef"
+          path="mnj.ont.view.pageDefs.EditPageDef"/>
+    <page id="mnj_ont_view_VersionsPageDef"
+          path="mnj.ont.view.pageDefs.VersionsPageDef"/>
+    <page id="mnj_ont_view_POInfoPageDef"
+          path="mnj.ont.view.pageDefs.POInfoPageDef"/>
+    <page id="mnj_ont_view_ReportPageDef"
+          path="mnj.ont.view.pageDefs.ReportPageDef"/>
+    <page id="mnj_ont_view_CustomReportPageDef"
+          path="mnj.ont.view.pageDefs.CustomReportPageDef"/>
+    <page id="mnj_ont_view_multiBOMPageDef"
+          path="mnj.ont.view.pageDefs.multiBOMPageDef"/>
+    <page id="mnj_ont_view_MultiEditPageDef"
+          path="mnj.ont.view.pageDefs.MultiEditPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="mnj.ont.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

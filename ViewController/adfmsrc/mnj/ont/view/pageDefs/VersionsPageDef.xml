@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="VersionsPageDef"
+                Package="mnj.ont.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustMnjOntBomHeaderViewVer1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="CustMnjOntBomHeaderViewVer1Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="CustMnjOntBomRmlineLinesViewVer1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="CustMnjOntBomRmlineLinesViewVer1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="CustMnjOntBomRmlineLinesViewVer1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CustMnjOntBomRmlineLinesViewVer1Query"/>
+    <iterator Binds="CustMnjOntBomOblineDetailsViewVer1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="CustMnjOntBomOblineDetailsViewVer1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="CustMnjOntBomOblineDetailsViewVer1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CustMnjOntBomOblineDetailsViewVer1Query"/>
+    <invokeAction id="versio" Binds="setVersionsRecordsClause"
+                  Refresh="always"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CustMnjOntBomHeaderViewVer1Iterator"
+                     id="BomNumber">
+      <AttrNames>
+        <Item Value="BomNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustMnjOntBomHeaderViewVer1Iterator"
+                     id="BomDate">
+      <AttrNames>
+        <Item Value="BomDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustMnjOntBomHeaderViewVer1Iterator"
+                     id="Buyer">
+      <AttrNames>
+        <Item Value="Buyer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustMnjOntBomHeaderViewVer1Iterator"
+                     id="SaleOrderNumber2">
+      <AttrNames>
+        <Item Value="SaleOrderNumber2"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CustMnjOntBomHeaderViewVer1Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="CustMnjOntBomHeaderViewVer1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="CustMnjOntBomHeaderViewVer1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="CustMnjOntBomHeaderViewVer1Iterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="CustMnjOntBomRmlineLinesViewVer1Iterator"
+          id="CustMnjOntBomRmlineLinesViewVer1">
+      <nodeDefinition DefName="mnj.ont.model.versions.views.CustMnjOntBomRmlineLinesViewVer"
+                      Name="CustMnjOntBomRmlineLinesViewVer10">
+        <AttrNames>
+          <Item Value="BomId"/>
+          <Item Value="ItemPrefix"/>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemDesc"/>
+          <Item Value="Position"/>
+          <Item Value="MeasureUnitId"/>
+          <Item Value="NoOfGarment"/>
+          <Item Value="UsageMoUnit"/>
+          <Item Value="ItemRefNo"/>
+          <Item Value="PreCostingLineno"/>
+          <Item Value="RmPlacement"/>
+          <Item Value="ProductionArea"/>
+          <Item Value="CutP"/>
+          <Item Value="ExtraUsage"/>
+          <Item Value="RmInstruction"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CustMnjOntBomOblineDetailsViewVer1Iterator"
+          id="CustMnjOntBomOblineDetailsViewVer1">
+      <nodeDefinition DefName="mnj.ont.model.versions.views.CustMnjOntBomOblineDetailsViewVer"
+                      Name="CustMnjOntBomOblineDetailsViewVer10">
+        <AttrNames>
+          <Item Value="MemoQty"/>
+          <Item Value="Additional"/>
+          <Item Value="ItemCode"/>
+          <Item Value="SoObno"/>
+          <Item Value="SizeId"/>
+          <Item Value="InseamId"/>
+          <Item Value="SizeQuantity"/>
+          <Item Value="Barcode"/>
+          <Item Value="Consumption"/>
+          <Item Value="CutP"/>
+          <Item Value="WithExtra"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction IterBinding="CustMnjOntBomHeaderViewVer1Iterator"
+                  id="setVersionsRecordsClause" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setVersionsRecordsClause"
+                  IsViewObjectMethod="true" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.CustMnjOntBomHeaderViewVer1">
+      <NamedData NDName="BomNumber"
+                 NDValue="#{pageFlowScope.TestPageFlowBean.scopeVariable}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="CustMnjOntBomHeaderViewVer1Iterator"
+                     id="VersionNumber">
+      <AttrNames>
+        <Item Value="VersionNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustMnjOntBomHeaderViewVer1Iterator"
+                     id="VersionDate">
+      <AttrNames>
+        <Item Value="VersionDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

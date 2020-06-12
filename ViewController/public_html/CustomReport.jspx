@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelHeader text="Fabric Custom Report" id="ph1" size="-1"
+                          inlineStyle="height:60px;"/>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t3">
+                <af:commandButton text="Generate Excel Report" id="cb1"
+                                  inlineStyle="font-size:13px; font-weight:bold; height:30px;"
+                                  icon="/icons/form.png">
+                  <af:fileDownloadActionListener contentType="application/excel"
+                                                 filename="BOMCustomReport.xls"
+                                                 method="#{backingBeanScope.CustomReport.generateReport}"/>
+                </af:commandButton>
+                <af:commandButton text="Back to BOM" id="cb2"
+                                  inlineStyle="font-weight:bold; height:30px;"
+                                  icon="/icons/back.png" action="query"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.FabricCustomReportVO1.collectionModel}"
+                      var="row"
+                      rows="#{bindings.FabricCustomReportVO1.rangeSize}"
+                      emptyText="#{bindings.FabricCustomReportVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.FabricCustomReportVO1.rangeSize}"
+                      rowBandingInterval="1"
+                      filterModel="#{bindings.FabricCustomReportVO1Query.queryDescriptor}"
+                      queryListener="#{bindings.FabricCustomReportVO1Query.processQuery}"
+                      filterVisible="true" varStatus="vs"
+                      selectedRowKeys="#{bindings.FabricCustomReportVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.FabricCustomReportVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1" autoHeightRows="0">
+              <af:column sortProperty="BomNumber" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportVO1.hints.BomNumber.label}"
+                         id="c2" align="center">
+                <af:outputText value="#{row.BomNumber}" id="ot8">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.FabricCustomReportVO1.hints.BomNumber.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="BomDate" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportVO1.hints.BomDate.label}"
+                         id="c5" align="center">
+                <f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.BomDate}" id="id1"/>
+                </f:facet>
+                <af:outputText value="#{row.BomDate}" id="ot3">
+                  <af:convertDateTime pattern="#{bindings.FabricCustomReportVO1.hints.BomDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="Buyer" filterable="true" sortable="true"
+                         headerText="#{bindings.FabricCustomReportVO1.hints.Buyer.label}"
+                         id="c4" align="center" width="150">
+                <af:outputText value="#{row.Buyer}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="Season" filterable="true" sortable="true"
+                         headerText="#{bindings.FabricCustomReportVO1.hints.Season.label}"
+                         id="c1" align="center">
+                <af:outputText value="#{row.Season}" id="ot6"/>
+              </af:column>
+              <af:column sortProperty="StyleName" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportVO1.hints.StyleName.label}"
+                         id="c6" align="center" width="150">
+                <af:outputText value="#{row.StyleName}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="StyleNo" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportVO1.hints.StyleNo.label}"
+                         id="c8" align="center">
+                <af:outputText value="#{row.StyleNo}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="Brand" filterable="true" sortable="true"
+                         headerText="#{bindings.FabricCustomReportVO1.hints.Brand.label}"
+                         id="c7" align="center">
+                <af:outputText value="#{row.Brand}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="ItemPrefix" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportVO1.hints.ItemPrefix.label}"
+                         id="c3" align="center" width="120"
+                         inlineStyle="font-size:14px; font-weight:bold;">
+                <af:outputText value="#{row.ItemPrefix}" id="ot7"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+          <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.FabricCustomReportItemVO1.collectionModel}"
+                      var="row"
+                      rows="#{bindings.FabricCustomReportItemVO1.rangeSize}"
+                      emptyText="#{bindings.FabricCustomReportItemVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.FabricCustomReportItemVO1.rangeSize}"
+                      rowBandingInterval="1"
+                      filterModel="#{bindings.FabricCustomReportItemVO1Query.queryDescriptor}"
+                      queryListener="#{bindings.FabricCustomReportItemVO1Query.processQuery}"
+                      filterVisible="true" varStatus="vs"
+                      selectedRowKeys="#{bindings.FabricCustomReportItemVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.FabricCustomReportItemVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t2" partialTriggers=":::pc1:t1"
+                      autoHeightRows="0">
+              <af:column sortProperty="ItemPrefix" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportItemVO1.hints.ItemPrefix.label}"
+                         id="c10" align="center">
+                <af:outputText value="#{row.ItemPrefix}" id="ot14"/>
+              </af:column>
+              <af:column sortProperty="ItemCode" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportItemVO1.hints.ItemCode.label}"
+                         id="c14" align="center">
+                <af:outputText value="#{row.ItemCode}" id="ot12"/>
+              </af:column>
+              <af:column sortProperty="Composition" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportItemVO1.hints.Composition.label}"
+                         id="c11" align="center">
+                <af:outputText value="#{row.Composition}" id="ot10"/>
+              </af:column>
+              <af:column sortProperty="BookingQty" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportItemVO1.hints.BookingQty.label}"
+                         id="c12" align="center">
+                <af:outputText value="#{row.BookingQty}" id="ot13">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.FabricCustomReportItemVO1.hints.BookingQty.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="DeliveryDate" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportItemVO1.hints.DeliveryDate.label}"
+                         id="c9" align="center">
+                <f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.DeliveryDate}"
+                                id="id2"/>
+                </f:facet>
+                <af:outputText value="#{row.DeliveryDate}" id="ot9">
+                  <af:convertDateTime pattern="#{bindings.FabricCustomReportItemVO1.hints.DeliveryDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="MeasureUnit" filterable="true"
+                         sortable="true"
+                         headerText="#{bindings.FabricCustomReportItemVO1.hints.MeasureUnit.label}"
+                         id="c13" align="center">
+                <af:outputText value="#{row.MeasureUnit}" id="ot11"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

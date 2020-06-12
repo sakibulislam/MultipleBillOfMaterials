@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="Query">
+    <page>/Query.jspx</page>
+    <input-page-parameter>
+      <from-value>#{param.ParamOrgId}</from-value>
+      <to-value>#{viewScope.OrgId}</to-value>
+    </input-page-parameter>
+    <input-page-parameter>
+      <from-value>#{param.ParamUserId}</from-value>
+      <to-value>#{viewScope.UserId}</to-value>
+    </input-page-parameter>
+    <input-page-parameter>
+      <from-value>#{param.ParamRespId}</from-value>
+      <to-value>#{viewScope.RespId}</to-value>
+    </input-page-parameter>
+    <input-page-parameter>
+      <from-value>#{param.ParamRespApplId}</from-value>
+      <to-value>#{viewScope.RespApplId}</to-value>
+    </input-page-parameter>
+  </view>
+  <view id="Edit">
+    <page>/Edit.jspx</page>
+  </view>
+  <view id="POInfo">
+    <page>/POInfo.jspx</page>
+  </view>
+  <view id="CustomReport">
+    <page>/CustomReport.jspx</page>
+  </view>
+  <view id="multiBOM">
+    <page>/multiBOM.jspx</page>
+    <input-page-parameter>
+      <from-value>#{param.ParamOrgId}</from-value>
+      <to-value>#{viewScope.OrgId}</to-value>
+    </input-page-parameter>
+    <input-page-parameter>
+      <from-value>#{param.ParamUserId}</from-value>
+      <to-value>#{viewScope.UserId}</to-value>
+    </input-page-parameter>
+    <input-page-parameter>
+      <from-value>#{param.ParamRespId}</from-value>
+      <to-value>#{viewScope.RespId}</to-value>
+    </input-page-parameter>
+    <input-page-parameter>
+      <from-value>#{param.ParamRespApplId}</from-value>
+      <to-value>#{viewScope.RespApplId}</to-value>
+    </input-page-parameter>
+  </view>
+  <view id="MultiEdit">
+    <page>/MultiEdit.jspx</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id id="__2">Query</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome id="__5">goEdit</from-outcome>
+      <to-activity-id id="__3">Edit</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__49">
+      <from-outcome id="__50">customReport</from-outcome>
+      <to-activity-id id="__48">CustomReport</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__6">
+    <from-activity-id id="__7">Edit</from-activity-id>
+    <control-flow-case id="__8">
+      <from-outcome id="__10">goBrowse</from-outcome>
+      <to-activity-id id="__9">Query</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__33">
+    <from-activity-id id="__34">POInfo</from-activity-id>
+    <control-flow-case id="__36">
+      <from-outcome id="__37">backToEdit</from-outcome>
+      <to-activity-id id="__35">MultiEdit</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__27">
+    <from-activity-id id="__28">CustomReport</from-activity-id>
+    <control-flow-case id="__46">
+      <from-outcome id="__47">query</from-outcome>
+      <to-activity-id id="__29">Query</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__15">
+    <from-activity-id id="__16">multiBOM</from-activity-id>
+    <control-flow-case id="__17">
+      <from-outcome id="__19">*goto</from-outcome>
+      <to-activity-id id="__18">MultiEdit</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__20">
+    <from-activity-id id="__25">MultiEdit</from-activity-id>
+    <control-flow-case id="__59">
+      <from-outcome id="__60">*goBack</from-outcome>
+      <to-activity-id id="__26">multiBOM</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__30">
+      <from-outcome id="__31">goToPoInfo</from-outcome>
+      <to-activity-id id="__32">POInfo</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__14">
+    <managed-bean-name id="__12">backing_bean</managed-bean-name>
+    <managed-bean-class id="__13">mnj.ont.view.backing.Main</managed-bean-class>
+    <managed-bean-scope id="__11">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__21">
+    <managed-bean-name id="__22">TestPageFlowBean</managed-bean-name>
+    <managed-bean-class id="__24">mnj.ont.view.backing.VersionsBean</managed-bean-class>
+    <managed-bean-scope id="__23">pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__40">
+    <managed-bean-name id="__39">PopUpBean</managed-bean-name>
+    <managed-bean-class id="__41">mnj.ont.view.backing.PopUpBean</managed-bean-class>
+    <managed-bean-scope id="__38">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__43">
+    <managed-bean-name id="__45">CopyPostBean</managed-bean-name>
+    <managed-bean-class id="__44">mnj.ont.view.backing.CopyPost</managed-bean-class>
+    <managed-bean-scope id="__42">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__51">
+    <managed-bean-name id="__54">CustomReport</managed-bean-name>
+    <managed-bean-class id="__53">CustomReportClass</managed-bean-class>
+    <managed-bean-scope id="__52">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__55">
+    <managed-bean-name id="__58">MainView</managed-bean-name>
+    <managed-bean-class id="__56">mainViewScope</managed-bean-class>
+    <managed-bean-scope id="__57">view</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

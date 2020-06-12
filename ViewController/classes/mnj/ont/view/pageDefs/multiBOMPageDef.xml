@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="multiBOMPageDef"
+                Package="mnj.ont.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="multi_Bom_Header_VO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="multi_Bom_Header_VO1Iterator"/>
+    <searchRegion Binds="multi_Bom_Header_VO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="multi_Bom_Header_VO1Query"/>
+    <invokeAction Binds="setSessionValues" id="setSession" Refresh="always"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="multi_Bom_Header_VO1Iterator" id="multi_Bom_Header_VO1">
+      <nodeDefinition DefName="mnj.ont.model.views.multi_Bom_Header_VO"
+                      Name="multi_Bom_Header_VO10">
+        <AttrNames>
+          <Item Value="OrgId"/>
+          <Item Value="BuyerId"/>
+          <Item Value="Buyer"/>
+          <Item Value="SeasonC"/>
+          <Item Value="UnitName"/>
+          <Item Value="ShipmentUnit"/>
+          <Item Value="StyleNo"/>
+          <Item Value="StyleName"/>
+          <Item Value="ViewAttr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respAppl" NDValue="#{viewScope.RespApplId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

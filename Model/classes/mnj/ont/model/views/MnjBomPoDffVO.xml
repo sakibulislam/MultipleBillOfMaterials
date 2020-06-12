@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjBomPoDffVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  SelectList="MnjBomPoDffEO.HEADER_ID, 
+       MnjBomPoDffEO.BOM_ID, 
+       MnjBomPoDffEO.ORG_ID, 
+       MnjBomPoDffEO.USER_ID, 
+       MnjBomPoDffEO.PR_NO, 
+       MnjBomPoDffEO.PURCHASE_MODE, 
+       MnjBomPoDffEO.SHIP_MODE, 
+       MnjBomPoDffEO.DELIVERY_TERM, 
+       MnjBomPoDffEO.SPO_TYPE, 
+       MnjBomPoDffEO.NOMINATED_BY, 
+       MnjBomPoDffEO.PARTIAL_SHIPMENT, 
+       MnjBomPoDffEO.EXCESS_SHIPMENT, 
+       MnjBomPoDffEO.ACTUAL_SUPPLIER, 
+       MnjBomPoDffEO.ACTUAL_SUPPLIER_ID"
+  FromList="MNJ_BOM_PO_DFF MnjBomPoDffEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="purchaseModeLov1"
+    ViewObjectName="mnj.ont.model.lov.poDffLov.purchaseModeLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ShipModeLov1"
+    ViewObjectName="mnj.ont.model.lov.poDffLov.ShipModeLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SpoTypeLov1"
+    ViewObjectName="mnj.ont.model.lov.poDffLov.SpoTypeLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PartialShipmentLov1"
+    ViewObjectName="mnj.ont.model.lov.poDffLov.PartialShipmentLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="NominatedByLov1"
+    ViewObjectName="mnj.ont.model.lov.poDffLov.NominatedByLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ExcessShipmentLov1"
+    ViewObjectName="mnj.ont.model.lov.poDffLov.ExcessShipmentLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DeliveryTermLov1"
+    ViewObjectName="mnj.ont.model.lov.poDffLov.DeliveryTermLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ActualSupplierLov1"
+    ViewObjectName="mnj.ont.model.lov.poDffLov.ActualSupplierLov"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_PurchaseMode"
+    ListVOName="purchaseModeLov1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PurchaseMode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PurchaseMode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ShipMode"
+    ListVOName="ShipModeLov1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ShipMode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ShipMode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DeliveryTerm"
+    ListVOName="DeliveryTermLov1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DeliveryTerm"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DeliveryTerm"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SpoType"
+    ListVOName="SpoTypeLov1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SpoType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SpoType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_NominatedBy"
+    ListVOName="NominatedByLov1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NominatedBy"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="NominatedBy"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PartialShipment"
+    ListVOName="PartialShipmentLov1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PartialShipment"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PartialShipment"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ExcessShipment"
+    ListVOName="ExcessShipmentLov1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ExcessShipment"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ExcessShipment"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ActualSupplier"
+    ListVOName="ActualSupplierLov1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ActualSupplier"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ActualSupplierId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VendorName"/>
+      <Item Value="VendorId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="MnjBomPoDffEO"
+    Entity="mnj.ont.model.entities.MnjBomPoDffEO"/>
+  <ViewAttribute
+    Name="HeaderId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="HeaderId"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="HEADER_ID"/>
+  <ViewAttribute
+    Name="BomId"
+    PrecisionRule="true"
+    EntityAttrName="BomId"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="BOM_ID"/>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="ORG_ID"/>
+  <ViewAttribute
+    Name="UserId"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="USER_ID"/>
+  <ViewAttribute
+    Name="PrNo"
+    PrecisionRule="true"
+    EntityAttrName="PrNo"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="PR_NO"/>
+  <ViewAttribute
+    Name="PurchaseMode"
+    PrecisionRule="true"
+    EntityAttrName="PurchaseMode"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="PURCHASE_MODE"
+    LOVName="LOV_PurchaseMode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipMode"
+    PrecisionRule="true"
+    EntityAttrName="ShipMode"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="SHIP_MODE"
+    LOVName="LOV_ShipMode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DeliveryTerm"
+    PrecisionRule="true"
+    EntityAttrName="DeliveryTerm"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="DELIVERY_TERM"
+    LOVName="LOV_DeliveryTerm">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SpoType"
+    PrecisionRule="true"
+    EntityAttrName="SpoType"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="SPO_TYPE"
+    LOVName="LOV_SpoType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NominatedBy"
+    PrecisionRule="true"
+    EntityAttrName="NominatedBy"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="NOMINATED_BY"
+    LOVName="LOV_NominatedBy">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PartialShipment"
+    PrecisionRule="true"
+    EntityAttrName="PartialShipment"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="PARTIAL_SHIPMENT"
+    LOVName="LOV_PartialShipment">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ExcessShipment"
+    PrecisionRule="true"
+    EntityAttrName="ExcessShipment"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="EXCESS_SHIPMENT"
+    LOVName="LOV_ExcessShipment">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ActualSupplier"
+    PrecisionRule="true"
+    EntityAttrName="ActualSupplier"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="ACTUAL_SUPPLIER"
+    LOVName="LOV_ActualSupplier">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ActualSupplierId"
+    PrecisionRule="true"
+    EntityAttrName="ActualSupplierId"
+    EntityUsage="MnjBomPoDffEO"
+    AliasName="ACTUAL_SUPPLIER_ID"/>
+</ViewObject>
