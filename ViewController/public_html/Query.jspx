@@ -36,8 +36,6 @@
                                         id="cb1" action="goEdit"
                                         inlineStyle="height:30px;font-weight:bold;"
                                         icon="/icons/add2.png"/>
-                      <af:commandToolbarButton text="Test"
-                                               id="ctb1"/>
                       <af:commandButton text="Open" id="cb3" action="goEdit"
                                         inlineStyle="height:30px;font-weight:bold;"
                                         icon="/icons/edit.png"/>
